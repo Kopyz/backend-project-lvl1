@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "brain-even": "dist/bin/brain-even.js",
-    "brain-games": "dist/bin/brain-games.js",
-    "brain-calc": :dist/bin/brain-even.js"
+    "brain-even": "dist/bin/games/brain-even.js",
+    "brain-games": "dist/bin/games/brain-games.js",
+    "brain-calc": :dist/bin/games/brain-even.js"
   },
   "files": [
     "dist"
