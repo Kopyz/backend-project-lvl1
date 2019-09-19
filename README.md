@@ -3,3 +3,4 @@
 [![Build Status](https://travis-ci.org/Kopyz/backend-project-lvl1.svg?branch=master)](https://travis-ci.org/Kopyz/backend-project-lvl1)
 [![asciicast](https://asciinema.org/a/dbXuXaDTb0gP8ETwvhq1khN12.png)](https://asciinema.org/a/dbXuXaDTb0gP8ETwvhq1khN12)
 [![asciicast](https://asciinema.org/a/kG2p8TcDgqFUg1Qg2H3Y8OWy0.png)](https://asciinema.org/a/kG2p8TcDgqFUg1Qg2H3Y8OWy0)
+[![asciicast](https://asciinema.org/a/QoUC9yeonZ0YRKrO3Z6ctX9N7.png)](https://asciinema.org/a/QoUC9yeonZ0YRKrO3Z6ctX9N7)
