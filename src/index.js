@@ -2,13 +2,13 @@ import readlineSync from 'readline-sync';
 import { cons, car, cdr } from '@hexlet/pairs';
 
 
-const upperLimitForRandomNum = 20;
+const upperLimitForRandomNum = 50;
 
 const askName = () => readlineSync.question('May I have your name? ');
 
 const evenOrOdd = (number) => ((number % 2 === 0) ? 'yes' : 'no');
 
-const randomNumber = () => Math.floor(Math.random() * upperLimitForRandomNum);
+const randomNumber = () => Math.floor(Math.random() * upperLimitForRandomNum) + 1;
 
 const randomExpression = () => {
   const pairsNum = cons(randomNumber(), randomNumber());
@@ -44,6 +44,23 @@ const realResultOfExpression = (pair) => {
   return 0;
 };
 
+const randomNumForNod = () => cons(randomNumber(), randomNumber());
+
+const randomNumForNodToString = (pair) => `${car(pair)} ${cdr(pair)}`;
+
+const nodVerify = (pair) => {
+  const num1 = car(pair);
+  const num2 = cdr(pair);
+  let diviner = (num1 >= num2 ? num2 : num1);
+  while (diviner > 0) {
+    if ((num1 % diviner === 0) && (num2 % diviner === 0)) {
+      return String(diviner);
+    }
+    diviner -= 1;
+  }
+  return '0';
+};
+
 const gameAnswer = (verify, generateNum) => verify(generateNum);
 
 const game = (playFunction, verifyFunction, toString) => {
@@ -63,16 +80,18 @@ const game = (playFunction, verifyFunction, toString) => {
     const realAnswer = gameAnswer(verifyFunction, play);
 
     if (answer === realAnswer) {
-      console.log('Correct');
+      console.log('Correct!');
       counterToWin -= 1;
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was ${realAnswer}.`);
       console.log(`Let's try again, ${name}!`);
     }
   }
-  console.log(`Congratulations, ${name}`);
+  console.log(`Congratulations, ${name}!`);
 };
 
 export {
-  game, randomNumber, evenOrOdd, realResultOfExpression, randomExpressionToString, randomExpression, numToString,
+  game, randomNumber, evenOrOdd, realResultOfExpression,
+  randomExpressionToString, randomExpression, numToString,
+  randomNumForNod, randomNumForNodToString, nodVerify,
 };
