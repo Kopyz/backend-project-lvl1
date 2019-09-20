@@ -61,6 +61,27 @@ const nodVerify = (pair) => {
   return '0';
 };
 
+const randomProgression = () => {
+  const startNum = randomNumber();
+  const step = randomNumber();
+  const quantityOfNumber = 10;
+  const shadowPosition = Math.floor(Math.random() * quantityOfNumber);
+  let strProgression = (shadowPosition === 1 ? '..' : '');
+  let i = (shadowPosition === 1 ? 1 : 0);
+  for (i; i < quantityOfNumber; i += 1) {
+    if (i === shadowPosition) {
+      strProgression += ' ..';
+    } else {
+      strProgression += ` ${startNum + (i * step)}`;
+    }
+  }
+  return cons(strProgression, (startNum + (shadowPosition * step)));
+};
+
+const randomProgressionToString = (pair) => car(pair);
+
+const progressionVerify = (pair) => String(cdr(pair));
+
 const gameAnswer = (verify, generateNum) => verify(generateNum);
 
 const game = (playFunction, verifyFunction, toString) => {
@@ -94,4 +115,5 @@ export {
   game, randomNumber, evenOrOdd, realResultOfExpression,
   randomExpressionToString, randomExpression, numToString,
   randomNumForNod, randomNumForNodToString, nodVerify,
+  randomProgression, randomProgressionToString, progressionVerify,
 };
