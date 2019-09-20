@@ -1,14 +1,12 @@
 import readlineSync from 'readline-sync';
 import { cons, car, cdr } from '@hexlet/pairs';
 
-
-const upperLimitForRandomNum = 50;
-
 const askName = () => readlineSync.question('May I have your name? ');
 
-const evenOrOdd = (number) => ((number % 2 === 0) ? 'yes' : 'no');
-
-const randomNumber = () => Math.floor(Math.random() * upperLimitForRandomNum) + 1;
+const randomNumber = () => {
+  const upperLimitForRandomNum = 50;
+  return Math.floor(Math.random() * upperLimitForRandomNum) + 1;
+};
 
 const randomExpression = () => {
   const pairsNum = cons(randomNumber(), randomNumber());
@@ -27,39 +25,7 @@ const randomExpression = () => {
   return 0;
 };
 
-const randomExpressionToString = (pair) => `${car(car(pair))} ${cdr(pair)} ${cdr(car(pair))}`;
-
-const numToString = (num) => String(num);
-
-const realResultOfExpression = (pair) => {
-  if (cdr(pair) === '+') {
-    return String(car(car(pair)) + cdr(car(pair)));
-  }
-  if (cdr(pair) === '-') {
-    return String(car(car(pair)) - cdr(car(pair)));
-  }
-  if (cdr(pair) === '*') {
-    return String(car(car(pair)) * cdr(car(pair)));
-  }
-  return 0;
-};
-
 const randomNumForNod = () => cons(randomNumber(), randomNumber());
-
-const randomNumForNodToString = (pair) => `${car(pair)} ${cdr(pair)}`;
-
-const nodVerify = (pair) => {
-  const num1 = car(pair);
-  const num2 = cdr(pair);
-  let diviner = (num1 >= num2 ? num2 : num1);
-  while (diviner > 0) {
-    if ((num1 % diviner === 0) && (num2 % diviner === 0)) {
-      return String(diviner);
-    }
-    diviner -= 1;
-  }
-  return '0';
-};
 
 const randomProgression = () => {
   const startNum = randomNumber();
@@ -80,7 +46,52 @@ const randomProgression = () => {
 
 const randomProgressionToString = (pair) => car(pair);
 
+const randomNumForNodToString = (pair) => `${car(pair)} ${cdr(pair)}`;
+
+const numToString = (num) => String(num);
+
+const randomExpressionToString = (pair) => `${car(car(pair))} ${cdr(pair)} ${cdr(car(pair))}`;
+
 const progressionVerify = (pair) => String(cdr(pair));
+
+const primeNumberVerify = (num) => {
+  let diviner = num - 1;
+  while (diviner > 1) {
+    if (num % diviner === 0) {
+      return 'no';
+    }
+    diviner -= 1;
+  }
+  return 'yes';
+};
+
+const nodVerify = (pair) => {
+  const num1 = car(pair);
+  const num2 = cdr(pair);
+  let diviner = (num1 >= num2 ? num2 : num1);
+  while (diviner > 0) {
+    if ((num1 % diviner === 0) && (num2 % diviner === 0)) {
+      return String(diviner);
+    }
+    diviner -= 1;
+  }
+  return '0';
+};
+
+const realResultOfExpression = (pair) => {
+  if (cdr(pair) === '+') {
+    return String(car(car(pair)) + cdr(car(pair)));
+  }
+  if (cdr(pair) === '-') {
+    return String(car(car(pair)) - cdr(car(pair)));
+  }
+  if (cdr(pair) === '*') {
+    return String(car(car(pair)) * cdr(car(pair)));
+  }
+  return 0;
+};
+
+const evenOrOdd = (number) => ((number % 2 === 0) ? 'yes' : 'no');
 
 const gameAnswer = (verify, generateNum) => verify(generateNum);
 
@@ -116,4 +127,5 @@ export {
   randomExpressionToString, randomExpression, numToString,
   randomNumForNod, randomNumForNodToString, nodVerify,
   randomProgression, randomProgressionToString, progressionVerify,
+  primeNumberVerify,
 };
