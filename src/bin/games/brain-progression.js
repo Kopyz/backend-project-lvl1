@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import {
   game, randomProgression, randomProgressionToString, progressionVerify,
 } from '../..';
