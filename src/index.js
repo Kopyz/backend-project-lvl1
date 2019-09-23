@@ -5,7 +5,8 @@ const askName = () => readlineSync.question('May I have your name? ');
 
 const randomNumber = () => {
   const upperLimitForRandomNum = 50;
-  return Math.floor(Math.random() * upperLimitForRandomNum) + 1;
+  const bottomLimitForRandomNum = 1;
+  return Math.floor(Math.random() * upperLimitForRandomNum) + bottomLimitForRandomNum;
 };
 
 const randomExpression = () => {
