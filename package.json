@@ -24,12 +24,12 @@
     "url": "git+https://github.com/Kopyz/backend-project-lvl1.git"
   },
   "keywords": [
-  	"brain-prime",
-  	"brain-progression",
-  	"brain-gcd",
-  	"brain-calc",
-  	"brain-even",
-  	"brain-games"
+    "brain-prime",
+    "brain-progression",
+    "brain-gcd",
+    "brain-calc",
+    "brain-even",
+    "brain-games"
   ],
   "author": "",
   "license": "ISC",
