@@ -1,7 +1,7 @@
 {
   "name": "backend-project-lvl1",
   "version": "1.0.0",
-  "description": "",
+  "description": "a package with brain games in terminal",
   "main": "index.js",
   "bin": {
     "brain-even": "dist/bin/games/brain-even.js",
@@ -23,6 +23,14 @@
     "type": "git",
     "url": "git+https://github.com/Kopyz/backend-project-lvl1.git"
   },
+  "keywords": [
+  	"brain-prime",
+  	"brain-progression",
+  	"brain-gcd",
+  	"brain-calc",
+  	"brain-even",
+  	"brain-games"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
