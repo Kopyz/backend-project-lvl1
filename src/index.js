@@ -128,5 +128,5 @@ export {
   randomExpressionToString, randomExpression, numToString,
   randomNumForNod, randomNumForNodToString, nodVerify,
   randomProgression, randomProgressionToString, progressionVerify,
-  primeNumberVerify,
+  primeNumberVerify, askName
 };
