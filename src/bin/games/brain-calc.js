@@ -1,10 +1,5 @@
 #!/usr/bin/env node
 
-import {
-  game, randomExpression, randomExpressionToString, realResultOfExpression,
-} from '../..';
+import calc from '../../calc';
 
-console.log('Welcome to the Brain Games!');
-console.log('What is the result of the expression?\n');
-
-game(randomExpression, realResultOfExpression, randomExpressionToString);
+calc();
