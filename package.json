@@ -2,7 +2,7 @@
   "name": "backend-project-lvl1",
   "version": "1.0.0",
   "description": "a package with brain games in terminal",
-  "main": "index.js",
+  "main": "",
   "bin": {
     "brain-even": "dist/bin/games/brain-even.js",
     "brain-games": "dist/bin/games/brain-games.js",
