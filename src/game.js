@@ -31,7 +31,7 @@ const runGame = (gamePoint, playFunction, verifyFunction, generatedDataToString)
       console.log('Correct!');
       counterToWin -= 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was ${realAnswer}.`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${realAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
     }
   }
