@@ -1,35 +1,41 @@
 import readlineSync from 'readline-sync';
 
 
-const askName = () => readlineSync.question('May I have your name? ');
+const showStartMessage = (message) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(`${message}\n`);
+};
 
-const gameAnswer = (verify, generateNum) => verify(generateNum);
+const computeGameAnswer = (verifyOrCalculateFunction,
+  generatedData) => verifyOrCalculateFunction(generatedData);
 
-const game = (playFunction, verifyFunction, toString) => {
-  const name = askName();
+const runGame = (gamePoint, playFunction, verifyFunction, generatedDataToString) => {
+  showStartMessage(gamePoint);
 
-  console.log(`Hello, ${name}!\n`);
+  const userName = readlineSync.question('May I have your name? ');
+
+  console.log(`Hello, ${userName}!\n`);
 
   let counterToWin = 3;
   while (counterToWin > 0) {
-    const play = playFunction();
-    const question = toString(play);
+    const generatedData = playFunction();
+    const question = generatedDataToString(generatedData);
 
     console.log(`Question : ${question}`);
 
-    const answer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    const realAnswer = gameAnswer(verifyFunction, play);
+    const realAnswer = computeGameAnswer(verifyFunction, generatedData);
 
-    if (answer === realAnswer) {
+    if (userAnswer === realAnswer) {
       console.log('Correct!');
       counterToWin -= 1;
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was ${realAnswer}.`);
-      console.log(`Let's try again, ${name}!`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was ${realAnswer}.`);
+      console.log(`Let's try again, ${userName}!`);
     }
   }
-  console.log(`Congratulations, ${name}!`);
+  console.log(`Congratulations, ${userName}!`);
 };
 
-export default game;
+export default runGame;
