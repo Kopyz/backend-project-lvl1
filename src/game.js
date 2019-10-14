@@ -1,35 +1,27 @@
 import readlineSync from 'readline-sync';
 
-
-const showStartMessage = (message) => {
+const runGame = (gamePoint, playFunction) => {
   console.log('Welcome to the Brain Games!');
-  console.log(`${message}\n`);
-};
-
-const computeGameAnswer = (verifyOrCalculateFunction,
-  generatedData) => verifyOrCalculateFunction(generatedData);
-
-const runGame = (gamePoint, playFunction, verifyFunction, generatedDataToString) => {
-  showStartMessage(gamePoint);
+  console.log(`${gamePoint}\n`);
 
   const userName = readlineSync.question('May I have your name? ');
 
   console.log(`Hello, ${userName}!\n`);
 
-  let counterToWin = 3;
-  while (counterToWin > 0) {
+  let wonRoundsCounter = 3;
+  while (wonRoundsCounter > 0) {
     const generatedData = playFunction();
-    const question = generatedDataToString(generatedData);
+    const question = generatedData('question');
 
     console.log(`Question : ${question}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
 
-    const realAnswer = computeGameAnswer(verifyFunction, generatedData);
+    const realAnswer = generatedData('result');
 
     if (userAnswer === realAnswer) {
       console.log('Correct!');
-      counterToWin -= 1;
+      wonRoundsCounter -= 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${realAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
