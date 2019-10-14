@@ -1,15 +1,20 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 import runGame from '../game';
-import genRandomNumber from '../number';
+import { genRandomNumber, genDataFunction } from '../utils';
 
-const genRandomNumForNod = () => cons(genRandomNumber(), genRandomNumber());
+const gameTaskQuestion = 'Find the greatest common divisor of given numbers.';
+const minRandomNumber = 1;
+const maxRandomNumber = 20;
+
+const genRandomNumberForNod = () => cons(genRandomNumber(minRandomNumber, maxRandomNumber),
+  genRandomNumber(minRandomNumber, maxRandomNumber));
 
 const calculateNod = (pair) => {
-  const num1 = car(pair);
-  const num2 = cdr(pair);
-  let diviner = (num1 >= num2 ? num2 : num1);
+  const number1 = car(pair);
+  const number2 = cdr(pair);
+  let diviner = (number1 >= number2 ? number2 : number1);
   while (diviner > 0) {
-    if ((num1 % diviner === 0) && (num2 % diviner === 0)) {
+    if ((number1 % diviner === 0) && (number2 % diviner === 0)) {
       return String(diviner);
     }
     diviner -= 1;
@@ -17,13 +22,13 @@ const calculateNod = (pair) => {
   return '0';
 };
 
-const randomNumForNodToString = (pair) => `${car(pair)} ${cdr(pair)}`;
+const randomNumberForNodToString = (pair) => `${car(pair)} ${cdr(pair)}`;
+
+const genGcdGameData = () => genDataFunction(genRandomNumberForNod, calculateNod,
+  randomNumberForNodToString);
 
 const runGcdGame = () => {
-  const gameTaskQuestion = 'Find the greatest common divisor of given numbers.';
-
-  runGame(gameTaskQuestion, genRandomNumForNod, calculateNod,
-    randomNumForNodToString);
+  runGame(gameTaskQuestion, genGcdGameData);
 };
 
 export default runGcdGame;

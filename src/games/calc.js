@@ -1,25 +1,29 @@
 import { cons, cdr, car } from '@hexlet/pairs';
 import runGame from '../game';
-import genRandomNumber from '../number';
+import { genRandomNumber, genDataFunction } from '../utils';
+
+const arithmeticalOperators = '+-*';
+const gameTaskQuestion = 'What is the result of the expression?';
+const minRandomNumber = 1;
+const maxRandomNumber = 20;
 
 const genArithmeticalOperator = () => {
-  const quantityOfOperators = 3;
-  const randomNumForStatement = Math.floor(Math.random() * quantityOfOperators);
-
-  if (randomNumForStatement < 1) {
-    return '+';
+  const selector = String(genRandomNumber(0, 3));
+  switch (selector) {
+    case '0':
+      return arithmeticalOperators[selector];
+    case '1':
+      return arithmeticalOperators[selector];
+    case '2':
+      return arithmeticalOperators[selector];
+    default:
+      return 0;
   }
-  if (randomNumForStatement < 2 && randomNumForStatement >= 1) {
-    return '-';
-  }
-  if (randomNumForStatement < 3 && randomNumForStatement >= 2) {
-    return '*';
-  }
-  return 0;
 };
 
 const genRandomNumbersAndOperator = () => {
-  const pairsNum = cons(genRandomNumber(), genRandomNumber());
+  const pairsNum = cons(genRandomNumber(minRandomNumber, maxRandomNumber),
+    genRandomNumber(minRandomNumber, maxRandomNumber));
   return cons(pairsNum, genArithmeticalOperator());
 };
 
@@ -38,11 +42,11 @@ const calculateResultOfExpression = (pair) => {
 
 const randomExpressionToString = (pair) => `${car(car(pair))} ${cdr(pair)} ${cdr(car(pair))}`;
 
-const runCalcGame = () => {
-  const gameTaskQuestion = 'What is the result of the expression?';
+const genCalcGameData = () => genDataFunction(genRandomNumbersAndOperator,
+  calculateResultOfExpression, randomExpressionToString);
 
-  runGame(gameTaskQuestion, genRandomNumbersAndOperator, calculateResultOfExpression,
-    randomExpressionToString);
+const runCalcGame = () => {
+  runGame(gameTaskQuestion, genCalcGameData);
 };
 
 export default runCalcGame;
