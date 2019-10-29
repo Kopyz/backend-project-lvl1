@@ -1,38 +1,38 @@
-import { cons, cdr, car } from '@hexlet/pairs';
 import runGame from '../game';
-import { genRandomNumber, genDataFunction } from '../utils';
+import genRandom from '../utils';
 
 const gameTaskQuestion = 'What number is missing in the progression?';
-const minRandomNumber = 1;
-const maxRandomNumber = 20;
+const minRandom = 1;
+const maxRandom = 20;
 
-const genRandomProgression = () => {
-  const firstNumberOfProgression = genRandomNumber(minRandomNumber, maxRandomNumber);
-  const stepOfProgression = genRandomNumber(minRandomNumber, maxRandomNumber);
-  const quantityOfNumbersInProgression = 9;
+const genProgressionGameData = () => {
+  const data = [];
+  const firstValueOfProgression = genRandom(minRandom, maxRandom);
+  const stepOfProgression = genRandom(minRandom, maxRandom);
+  const quantityProgression = 9;
 
-  const shadowPosition = genRandomNumber(0, quantityOfNumbersInProgression + 1);
+  const shadowPosition = genRandom(0, quantityProgression + 1);
+  const shadowPositionValue = String(firstValueOfProgression
+    + (shadowPosition * stepOfProgression));
 
-  let progressionInString = (shadowPosition === 0 ? '..' : '');
+  let progression = (shadowPosition === 0 ? '..' : '');
   let i = (shadowPosition === 0 ? 1 : 0);
 
-  for (i; i <= quantityOfNumbersInProgression; i += 1) {
+  for (i; i <= quantityProgression; i += 1) {
     if (i === shadowPosition) {
-      progressionInString += ' ..';
+      progression += ' ..';
     } else {
-      progressionInString += ` ${firstNumberOfProgression + (i * stepOfProgression)}`;
+      progression += ` ${firstValueOfProgression + (i * stepOfProgression)}`;
     }
   }
-  return cons(progressionInString,
-    (firstNumberOfProgression + (shadowPosition * stepOfProgression)));
+  const question = progression;
+  const result = shadowPositionValue;
+
+  data.push(question);
+  data.push(result);
+
+  return data;
 };
-
-const getShadowValue = (pair) => String(cdr(pair));
-
-const randomProgressionToString = (pair) => car(pair);
-
-const genProgressionGameData = () => genDataFunction(genRandomProgression,
-  getShadowValue, randomProgressionToString);
 
 const runProgressionGame = () => {
   runGame(gameTaskQuestion, genProgressionGameData);

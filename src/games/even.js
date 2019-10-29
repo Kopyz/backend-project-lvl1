@@ -1,17 +1,23 @@
 import runGame from '../game';
-import { genRandomNumber, genDataFunction } from '../utils';
+import genRandom from '../utils';
 
 const gameTaskQuastion = 'Answer "yes" if the number is even, otherwise answer "no".';
-const minRandomNumber = 1;
-const maxRandomNumber = 20;
+const minRandom = 1;
+const maxRandom = 20;
 
 const isEven = (number) => (number % 2 === 0);
 
-const translateBoolean = (number) => (isEven(number) ? 'yes' : 'no');
+const genEvenGameData = () => {
+  const data = [];
+  const value = genRandom(minRandom, maxRandom);
+  const question = value;
+  const result = isEven(value) ? 'yes' : 'no';
 
-const genRandomNumberForGame = () => genRandomNumber(minRandomNumber, maxRandomNumber);
+  data.push(question);
+  data.push(result);
 
-const genEvenGameData = () => genDataFunction(genRandomNumberForGame, translateBoolean, String);
+  return data;
+};
 
 const runEvenGame = () => {
   runGame(gameTaskQuastion, genEvenGameData);
