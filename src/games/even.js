@@ -9,9 +9,8 @@ const isEven = (number) => (number % 2 === 0);
 
 const genEvenGameData = () => {
   const data = [];
-  const value = genRandom(minRandom, maxRandom);
-  const question = value;
-  const result = isEven(value) ? 'yes' : 'no';
+  const question = genRandom(minRandom, maxRandom);
+  const result = isEven(question) ? 'yes' : 'no';
 
   data.push(question);
   data.push(result);
