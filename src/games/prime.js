@@ -24,9 +24,8 @@ const isPrime = (number) => {
 
 const genPrimeGameData = () => {
   const data = [];
-  const value = genRandom(minRandom, maxRandom);
-  const question = value;
-  const result = isPrime(value) ? 'yes' : 'no';
+  const question = genRandom(minRandom, maxRandom);
+  const result = isPrime(question) ? 'yes' : 'no';
 
   data.push(question);
   data.push(result);
