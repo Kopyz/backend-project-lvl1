@@ -7,18 +7,18 @@ const minRandom = 1;
 const maxRandom = 20;
 
 const genArithmeticalOperator = () => {
-  const selector = genRandom(0, 3);
+  const selector = genRandom(0, arithmeticalOperators.length);
   return arithmeticalOperators[selector];
 };
 
 const calculateResultOfExpression = (first, second, sign) => {
   switch (sign) {
     case '+':
-      return String(first + second);
+      return first + second;
     case '-':
-      return String(first - second);
+      return first - second;
     case '*':
-      return String(first * second);
+      return first * second;
     default:
       return null;
   }
@@ -30,7 +30,7 @@ const genCalcGameData = () => {
   const value2 = genRandom(minRandom, maxRandom);
   const operator = genArithmeticalOperator();
   const question = `${value1} ${operator} ${value2}`;
-  const result = calculateResultOfExpression(value1, value2, operator);
+  const result = String(calculateResultOfExpression(value1, value2, operator));
 
   data.push(question);
   data.push(result);
