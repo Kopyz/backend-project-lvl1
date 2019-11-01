@@ -9,20 +9,20 @@ const genProgressionGameData = () => {
   const data = [];
   const firstValueOfProgression = genRandom(minRandom, maxRandom);
   const stepOfProgression = genRandom(minRandom, maxRandom);
-  const quantityProgression = 9;
+  const quantityProgression = 10;
 
-  const shadowPosition = genRandom(0, quantityProgression + 1);
+  const shadowPosition = genRandom(0, quantityProgression);
   const shadowPositionValue = String(firstValueOfProgression
     + (shadowPosition * stepOfProgression));
 
   let progression = (shadowPosition === 0 ? '..' : '');
   let i = (shadowPosition === 0 ? 1 : 0);
 
-  for (i; i <= quantityProgression; i += 1) {
+  for (i; i < quantityProgression; i += 1) {
     if (i === shadowPosition) {
-      progression += ' ..';
+      progression = `${progression} ..`;
     } else {
-      progression += ` ${firstValueOfProgression + (i * stepOfProgression)}`;
+      progression = `${progression} ${firstValueOfProgression + (i * stepOfProgression)}`;
     }
   }
   const question = progression;
