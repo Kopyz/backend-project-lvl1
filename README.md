@@ -10,7 +10,7 @@ Install five simplest math games:
 5. **brain-prime**: answer prime number or not.
 *For win you must give three right answers in the row*
 
-##Install##
+## Install
 Clone backend-project-lvl1 repository.
 
 Publish npm package locally: 
