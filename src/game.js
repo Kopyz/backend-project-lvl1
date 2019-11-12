@@ -10,7 +10,7 @@ const runGame = (tutorial, genDataGame) => {
 
   console.log(`Hello, ${userName}!\n`);
 
-  for (let i = 0; i < wonRoundsCounter;) {
+  for (let i = 1; i <= wonRoundsCounter; i += 1) {
     const [question, realAnswer] = genDataGame();
 
     console.log(`Question : ${question}`);
@@ -19,13 +19,15 @@ const runGame = (tutorial, genDataGame) => {
 
     if (userAnswer === realAnswer) {
       console.log('Correct!');
-      i += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${realAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
+      break;
+    }
+    if (i === wonRoundsCounter) {
+      console.log(`Congratulations, ${userName}!`);
     }
   }
-  console.log(`Congratulations, ${userName}!`);
 };
 
 export default runGame;
