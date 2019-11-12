@@ -1,11 +1,11 @@
 import runGame from '../game';
-import genRandom from '../utils';
+import generateRandom from '../utils';
 
-const gameTaskQuestion = 'Find the greatest common divisor of given numbers.';
+const gameTask = 'Find the greatest common divisor of given numbers.';
 const minRandom = 1;
 const maxRandom = 20;
 
-const calculateGcd = (first, second) => {
+const calculate = (first, second) => {
   let diviner = (first >= second ? first : second);
   while (diviner > 0) {
     if ((first % diviner === 0) && (second % diviner === 0)) {
@@ -16,21 +16,21 @@ const calculateGcd = (first, second) => {
   return null;
 };
 
-const genGcdGameData = () => {
+const generateGcdGameData = () => {
   const data = [];
-  const value1 = genRandom(minRandom, maxRandom);
-  const value2 = genRandom(minRandom, maxRandom);
+  const value1 = generateRandom(minRandom, maxRandom);
+  const value2 = generateRandom(minRandom, maxRandom);
   const question = `${value1} ${value2}`;
-  const result = String(calculateGcd(value1, value2));
+  const correctAnswer = String(calculate(value1, value2));
 
   data.push(question);
-  data.push(result);
+  data.push(correctAnswer);
 
   return data;
 };
 
 const runGcdGame = () => {
-  runGame(gameTaskQuestion, genGcdGameData);
+  runGame(gameTask, generateGcdGameData);
 };
 
 export default runGcdGame;

@@ -1,7 +1,7 @@
 import runGame from '../game';
-import genRandom from '../utils';
+import generateRandom from '../utils';
 
-const gameTaskQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameTask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const minRandom = 1;
 const maxRandom = 20;
 
@@ -22,19 +22,19 @@ const isPrime = (number) => {
   return null;
 };
 
-const genPrimeGameData = () => {
+const generatePrimeGameData = () => {
   const data = [];
-  const question = genRandom(minRandom, maxRandom);
-  const result = isPrime(question) ? 'yes' : 'no';
+  const question = generateRandom(minRandom, maxRandom);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
   data.push(question);
-  data.push(result);
+  data.push(correctAnswer);
 
   return data;
 };
 
 const runPrimeGame = () => {
-  runGame(gameTaskQuestion, genPrimeGameData);
+  runGame(gameTask, generatePrimeGameData);
 };
 
 export default runPrimeGame;

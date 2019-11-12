@@ -1,25 +1,25 @@
 import runGame from '../game';
-import genRandom from '../utils';
+import generateRandom from '../utils';
 
-const gameTaskQuastion = 'Answer "yes" if the number is even, otherwise answer "no".';
+const gameTask = 'Answer "yes" if the number is even, otherwise answer "no".';
 const minRandom = 1;
 const maxRandom = 20;
 
-const isEven = (number) => (number % 2 === 0);
+const isEven = (number) => number % 2 === 0;
 
-const genEvenGameData = () => {
+const generateEvenGameData = () => {
   const data = [];
-  const question = genRandom(minRandom, maxRandom);
-  const result = isEven(question) ? 'yes' : 'no';
+  const question = generateRandom(minRandom, maxRandom);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
 
   data.push(question);
-  data.push(result);
+  data.push(correctAnswer);
 
   return data;
 };
 
 const runEvenGame = () => {
-  runGame(gameTaskQuastion, genEvenGameData);
+  runGame(gameTask, generateEvenGameData);
 };
 
 export default runEvenGame;
