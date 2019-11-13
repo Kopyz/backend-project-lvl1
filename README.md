@@ -2,6 +2,28 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/8af8f63d73937298b39a/maintainability)](https://codeclimate.com/github/Kopyz/backend-project-lvl1/maintainability)
 [![Build Status](https://travis-ci.org/Kopyz/backend-project-lvl1.svg?branch=master)](https://travis-ci.org/Kopyz/backend-project-lvl1)
 
+Install five simplest math games:
+1. **brain-even**: answer even number or not.
+2. **brain-calc**: give the result of expression.
+3. **brain-gcd**: find the greatest common divisor.
+4. **brain-progression**: guess missing number in progression.
+5. **brain-prime**: answer prime number or not.
+
+*For win you must give three right answers in the row*
+
+## Install
+Clone backend-project-lvl1 repository: `git clone [backend-project-lvl1 HTTPS]`
+
+Publish npm package locally: 
+`make publish`
+
+Install npm package:
+`sudo npm link`
+
+[![asciicast](https://asciinema.org/a/Bqn8C0F6eb2sfkc1ryFcW7LmN.png)](https://asciinema.org/a/Bqn8C0F6eb2sfkc1ryFcW7LmN)
+
+## Game Examples
+
 brain-even:
 [![asciicast](https://asciinema.org/a/dbXuXaDTb0gP8ETwvhq1khN12.png)](https://asciinema.org/a/dbXuXaDTb0gP8ETwvhq1khN12)
 
