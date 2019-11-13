@@ -8,6 +8,7 @@ Install five simplest math games:
 3. **brain-gcd**: find the greatest common divisor.
 4. **brain-progression**: guess missing number in progression.
 5. **brain-prime**: answer prime number or not.
+
 *For win you must give three right answers in the row*
 
 ## Install
