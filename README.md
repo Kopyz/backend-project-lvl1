@@ -22,6 +22,8 @@ Install npm package:
 
 [![asciicast](https://asciinema.org/a/Bqn8C0F6eb2sfkc1ryFcW7LmN.png)](https://asciinema.org/a/Bqn8C0F6eb2sfkc1ryFcW7LmN)
 
+## Game Examples
+
 brain-even:
 [![asciicast](https://asciinema.org/a/dbXuXaDTb0gP8ETwvhq1khN12.png)](https://asciinema.org/a/dbXuXaDTb0gP8ETwvhq1khN12)
 
