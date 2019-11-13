@@ -11,7 +11,7 @@ Install five simplest math games:
 *For win you must give three right answers in the row*
 
 ## Install
-Clone backend-project-lvl1 repository.
+Clone backend-project-lvl1 repository: `git clone [backend-project-lvl1 HTTPS]`
 
 Publish npm package locally: 
 `make publish`
