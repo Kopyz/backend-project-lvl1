@@ -7,7 +7,7 @@ const minRandom = 1;
 const maxRandom = 20;
 
 const generateArithmeticalOperator = () => {
-  const indexOperator = generateRandom(0, arithmeticalOperators.length);
+  const indexOperator = generateRandom(0, arithmeticalOperators.length - 1);
   return arithmeticalOperators[indexOperator];
 };
 
