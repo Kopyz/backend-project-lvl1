@@ -20,14 +20,11 @@ const runGame = (tutorial, genDataGame) => {
     if (userAnswer === realAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${realAnswer}'.`);
-      console.log(`Let's try again, ${userName}!`);
-      break;
-    }
-    if (i === wonRoundsCounter) {
-      console.log(`Congratulations, ${userName}!`);
+      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${realAnswer}'
+Let's try again, ${userName}!`);
     }
   }
+  return console.log(`Congratulations, ${userName}!`);
 };
 
 export default runGame;
