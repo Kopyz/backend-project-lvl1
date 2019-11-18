@@ -2,29 +2,29 @@ import runGame from '../game';
 import generateRandom from '../utils';
 
 const gameTask = 'What number is missing in the progression?';
-const minRandom = 1;
-const maxRandom = 20;
+const min = 1;
+const max = 20;
+const quantity = 10;
 
 const generateProgressionGameData = () => {
   const data = [];
-  const firstValueOfProgression = generateRandom(minRandom, maxRandom);
-  const stepOfProgression = generateRandom(minRandom, maxRandom);
-  const quantityProgression = 10;
+  const firstValue = generateRandom(min, max);
+  const step = generateRandom(min, max);
 
-  const shadowPosition = generateRandom(0, quantityProgression - 1);
-  const correctAnswer = String(firstValueOfProgression
-    + (shadowPosition * stepOfProgression));
+  const shadowPosition = generateRandom(0, quantity - 1);
+  const correctAnswer = String(firstValue + (shadowPosition * step));
 
-  let progression = (shadowPosition === 0 ? '..' : '');
-  let i = (shadowPosition === 0 ? 1 : 0);
+  let progression = '';
 
-  for (i; i < quantityProgression; i += 1) {
-    if (i === 0) {
-      progression = `${firstValueOfProgression}`;
+  for (let i = 0; i < quantity; i += 1) {
+    if (i === 0 && shadowPosition === 0) {
+      progression = '..';
+    } else if (progression === '') {
+      progression = `${firstValue}`;
     } else if (i === shadowPosition) {
       progression = `${progression} ..`;
     } else {
-      progression = `${progression} ${firstValueOfProgression + (i * stepOfProgression)}`;
+      progression = `${progression} ${firstValue + (i * step)}`;
     }
   }
   const question = progression;

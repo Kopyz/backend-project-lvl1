@@ -3,8 +3,8 @@ import generateRandom from '../utils';
 
 const arithmeticalOperators = '+-*';
 const gameTask = 'What is the result of the expression?';
-const minRandom = 1;
-const maxRandom = 20;
+const min = 1;
+const max = 20;
 
 const generateArithmeticalOperator = () => {
   const indexOperator = generateRandom(0, arithmeticalOperators.length - 1);
@@ -26,8 +26,8 @@ const calculate = (first, second, sign) => {
 
 const generateCalcGameData = () => {
   const data = [];
-  const value1 = generateRandom(minRandom, maxRandom);
-  const value2 = generateRandom(minRandom, maxRandom);
+  const value1 = generateRandom(min, max);
+  const value2 = generateRandom(min, max);
   const operator = generateArithmeticalOperator();
   const question = `${value1} ${operator} ${value2}`;
   const correctAnswer = String(calculate(value1, value2, operator));

@@ -2,14 +2,14 @@ import runGame from '../game';
 import generateRandom from '../utils';
 
 const gameTask = 'Answer "yes" if the number is even, otherwise answer "no".';
-const minRandom = 1;
-const maxRandom = 20;
+const min = 1;
+const max = 20;
 
 const isEven = (number) => number % 2 === 0;
 
 const generateEvenGameData = () => {
   const data = [];
-  const question = generateRandom(minRandom, maxRandom);
+  const question = generateRandom(min, max);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
 
   data.push(question);
