@@ -1,5 +1,6 @@
 {
   "name": "backend-project-lvl1",
+  "type": "module",
   "version": "1.0.0",
   "description": "a package with brain games in terminal",
   "main": "",
